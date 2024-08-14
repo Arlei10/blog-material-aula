@@ -65,3 +65,37 @@ public enum Configuracao {
     
 }
 ```
+
+## Árlei Nóbrega
+
+```java
+
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+public class Impressora {
+    private static final Map<String, Impressora> impressoras = new ConcurrentHashMap<>();
+    private final String departamento;
+
+    private Impressora(String departamento) {
+        this.departamento = departamento;
+    }
+
+    public static Impressora getInstance(String departamento) {
+        return impressoras.computeIfAbsent(departamento, Impressora::new);
+    }
+
+    public void imprimir(String documento) {
+        System.out.println("Imprimindo do departamento " + departamento + ": " + documento);
+    }
+
+    public static void main(String[] args) {
+        Impressora impressoraRH = Impressora.getInstance("RH");
+        Impressora impressoraFinanceiro = Impressora.getInstance("Financeiro");
+
+        impressoraRH.imprimir("Manual do Funcionário");
+        impressoraFinanceiro.imprimir("Relatório Financeiro");
+    }
+}
+
+```
