@@ -113,5 +113,50 @@ PizzaBuilder --> Pizza : build()
 
 
 ```
+
+# Árlei Nóbrega
+
+<figure>
+
+```plantuml
+@startuml
+interface ILivroBuilder {
+    +marcacoes(marcacoes: List<String>): ILivroBuilder
+    +paginas(paginas: int): ILivroBuilder
+    +dataDaPublicacao(data: Date): ILivroBuilder
+    +texto(texto: String): ILivroBuilder
+    +build(): Livro
+}
+
+class Livro {
+    -autor: String
+    -titulo: String
+    -marcacoes: List<String>
+    -paginas: int
+    -dataDaPublicacao: Date
+    -texto: String
+    +Livro(builder: ILivroBuilder)
+}
+
+class LivroBuilder implements ILivroBuilder {
+    -autor: String
+    -titulo: String
+    -marcacoes: List<String>
+    -paginas: int
+    -dataDaPublicacao: Date
+    -texto: String
+    +marcacoes(marcacoes: List<String>): ILivroBuilder
+    +paginas(paginas: int): ILivroBuilder
+    +dataDaPublicacao(data: Date): ILivroBuilder
+    +texto(texto: String): ILivroBuilder
+    +build(): Livro
+}
+
+Livro --> ILivroBuilder
+ILivroBuilder <|.. LivroBuilder
+@enduml
+```
+
+
 <figcaption> Exemplo de builder </figcaption>
 </figure>
