@@ -78,4 +78,49 @@ MagoFactory --> Cajado : cria >
 @enduml
 
 ```
+
+## Árlei Nóbrega
+<figure>
+  
+```plantuml
+
+@startuml
+interface Aluno {
+    +matricular(): void
+}
+
+interface Professor {
+    +ministrarAula(): void
+}
+
+interface FaculdadeFactory {
+    +criarAluno(): Aluno
+    +criarProfessor(): Professor
+}
+
+class AlunoGraduacao implements Aluno {
+    +matricular(): void
+}
+
+class ProfessorMestrado implements Professor {
+    +ministrarAula(): void
+}
+
+class AlunoGraduacaoFactory implements FaculdadeFactory {
+    +criarAluno(): Aluno
+    +criarProfessor(): Professor
+}
+
+class ProfessorMestradoFactory implements FaculdadeFactory {
+    +criarAluno(): Aluno
+    +criarProfessor(): Professor
+}
+
+FaculdadeFactory <|-- AlunoGraduacaoFactory
+FaculdadeFactory <|-- ProfessorMestradoFactory
+AlunoGraduacaoFactory --> AlunoGraduacao : cria >
+ProfessorMestradoFactory --> ProfessorMestrado : cria >
+@enduml
+
+```
 </figure>
