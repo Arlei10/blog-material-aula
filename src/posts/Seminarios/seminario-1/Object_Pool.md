@@ -25,7 +25,7 @@ author: JoaoAugustoMPdJ, SalvadorCerqueiraJr
 <!-- @include: ../../../includes/seminario-1-SalvadorCerqueiraJr/README.md -->
 
 ## Árlei Nóbrega
-```plantum1
+```plantuml
 @startuml
 title Diagrama de Classes: Pool de Salas de Aula
 
