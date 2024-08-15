@@ -27,7 +27,7 @@ author: GabrielMreira, Redror
 
 ## Árlei Nóbrega 
 
-```plantum1
+```plantuml
 
 @startuml
 class Usuario {
