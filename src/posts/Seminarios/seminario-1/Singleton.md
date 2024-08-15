@@ -23,3 +23,18 @@ author: GuiSamp, RiansFonseca
 
 <!-- @include: ../../../includes/seminario-1-RiansFonseca/README-SINGLETON.md -->
 
+```plantuml
+
+@startuml
+class GerenciadorDeConexao {
+    - instancia: GerenciadorDeConexao
+    - conexao: Connection
+    + obterInstancia(): GerenciadorDeConexao
+    - GerenciadorDeConexao()
+    + obterConexao(): Connection
+}
+
+GerenciadorDeConexao --> GerenciadorDeConexao : tem
+@enduml
+
+```
